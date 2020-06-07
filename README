@@ -1,0 +1,76 @@
+                          PROJECT cov-swn, version 1.0
+                          ============================
+
+Type in the top-level directory
+
+make
+
+This should create three executable binaries:
+
+cov
+demo
+gracov
+
+Typing
+
+./demo agenda_demo
+
+should generate, over a period of about five minutes, 320 output files in,
+by default, the /tmp directory. (If another output directory is preferred,
+the file agenda_demo should be edited in advance - see below.)
+
+Each output file has a name which shows the input parameters for the run
+which created it.  For example, the file
+
+/tmp/7FFFFFFFDDDDDDDD-50000-3-0.009-0.25-0.00-2-9
+
+is the output from a run with the following input parameters:
+
+0x7FFFFFFF=seedcov  Seed for random-number generator used for the epidemic.
+0xDDDDDDDD=seedswm  Seed for random-number generator used for rewiring
+                    the small-world network.
+manynode=50000      Number of nodes.
+halfdegree=3        Half the number of neighbours for a node in the precursor
+                    ring lattice.
+beta=0.009          The fraction of nodes rewired.
+chance=0.25         The probability that on a given day a node will become
+                    infected by a given infectious neighbour.
+inert=0.0           The fraction of nodes which do not participate in the
+                    epidemic at all.
+incubating=2        The number of days after contracting an infection that
+                    a node begins to be infectious.
+recovery=9          The number of days after contracting an infection that
+                    a node ceases to be infectious.
+
+The file agenda_demo has been annotated to indicate how it may be used as
+a template for creating other agenda files which launch runs with different
+input parameters.  In an agenda file the syntax A:B:C means successive runs
+are to performed with values A,A+B,A+2B,.. up to and including the value C.
+A single line in an agenda file can thus cause a large number of runs to be
+carried out.
+
+The final field on each line of the agenda file specifies the directory into
+which the output files are to be written.  The specified directory must be
+created in advance.
+
+At present (version 1.0) the contents of the output file are simple, and it
+is sufficient to pay attention to the two leftmost columns.  These, give the
+cumulative fraction of nodes that have become infected at some time on or
+prior to a given day. (Notice that the concept of recovery is not relevant
+here: it is the time of initial infection which matters.)
+
+The utility program gracov included in this project may prove useful on
+Linux systems which have gnuplot and ristretto installed.  Running the
+(single-line!) command
+
+./gracov /tmp/7FFFFFFFDDDDDDDD-50000-3-0.009-0.25-0.00-2-9 Infected /tmp/7EEEEEEEDDDDDDDD-50000-3-0.009-0.25-0.00-2-9 Infected
+
+will display a single graph where the outputs of the two runs can be
+conveniently compared by eye.
+
+This project has been developed so far under Linux Debian 10 using the gcc and
+clang compilers.  If there turns out to be sufficient demand, future versions
+may include components for running natively on Windows 10.
+
+                                            Richard Michael Thomas, 7 June 2020
+

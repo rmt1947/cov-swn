@@ -1,0 +1,20 @@
+#------------------------------------------------------------------------------
+#  Copyright (c) 2020 Richard Michael Thomas <rmthomas@sciolus.org>
+#
+#  agenda_demo
+#
+#  NOTES:  All ranges are interpreted as inclusive of the endpoints.
+#          The fields containing colons must contain no whitespace and must
+#          have precisely three non-negative numerical components:
+#                        min:increment:max
+#          where 0<=min<=max.  A zero increment is interpreted as infinite.
+#------------------------------------------------------------------------------------------------------------------------------
+#  seedcov | seedswn  |      manynode     |halfdegree|      beta       |    chance    |    inert     |incubation|recovery| dir
+#------------------------------------------------------------------------------------------------------------------------------
+
+ 0xAAAAAAAA 0xBBBBBBBB   5000:45000:50000    2:1:3    0.000:0.100:0.900 0.05:0.20:0.25    0.:0.:0.       2:0:2     9:0:9  /tmp
+ 0xAAAAAAAA 0xCCCCCCCC   5000:45000:50000    2:1:3    0.000:0.100:0.900 0.05:0.20:0.25    0.:0.:0.       2:0:2     9:0:9  /tmp  
+
+ 0x7EEEEEEE 0xDDDDDDDD   5000:45000:50000    2:1:3    0.000:0.001:0.010 0.05:0.20:0.25    0.:0.:0.       2:0:2     9:0:9  /tmp
+ 0x7FFFFFFF 0xDDDDDDDD   5000:45000:50000    2:1:3    0.000:0.001:0.010 0.05:0.20:0.25    0.:0.:0.       2:0:2     9:0:9  /tmp
+
