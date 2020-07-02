@@ -38,8 +38,8 @@ int BarratWeigt(int,double,int,double *);
 
 /* ************************************************************************//**
 @brief   Insert an edge beween two nodes.
-@param   parg1    The first  of the pair of nodes to be unlinked.
-@param   parg2    The second of the pair of nodes to be unlinked.
+@param   parg1    The first  of the pair of nodes to be linked.
+@param   parg2    The second of the pair of nodes to be linked.
 @return           0  => nodes successfully linked;
                   1  => nodes were already linked, no action taken;
                   <0 => error.
